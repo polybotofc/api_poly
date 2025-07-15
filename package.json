@@ -7,11 +7,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "api-dylux": "^1.0.4",
-    "express": "^4.18.2",
-    "sqlite3": "^5.1.7",
-    "body-parser": "^2.2.0",
-    "node-fetch": "^2.7.0",
-    "string-similarity": "^4.0.4"
-  }
+  "express": "^4.18.2",
+  "api-dylux": "^1.0.4"
+}
+
 }
