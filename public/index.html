@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poly Bot Hub - Dashboard API</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f2027;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #sidebar {
+      width: 220px;
+      background: #111;
+      color: #0f0;
+      padding-top: 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      transition: transform 0.3s ease;
+      transform: translateX(-220px); /* TERTUTUP default */
+    }
+
+    #sidebar.open {
+      transform: translateX(0);
+    }
+
+    #sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #00ff88;
+    }
+
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #sidebar li {
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #sidebar li:hover {
+      background: #222;
+    }
+
+    #toggleBtn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #toggleBtn img {
+      width: 30px;
+      height: 30px;
+      filter: brightness(0) saturate(100%) invert(71%) sepia(45%) saturate(741%) hue-rotate(91deg) brightness(90%) contrast(87%);
+    }
+
+    main {
+      margin-left: 0;
+      padding: 40px 30px;
+      flex: 1;
+      overflow-y: auto;
+      transition: margin-left 0.3s;
+    }
+
+    main.shifted {
+      margin-left: 220px;
+    }
+
+    .card {
+      background: #1c1c1c;
+      border-left: 5px solid #00ff88;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+      padding: 20px;
+      margin-bottom: 25px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      color: #00ff88;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 12px;
+      background: #00ff88;
+      color: #000;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .card a:hover {
+      background: #00cc6f;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #aaa;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggleBtn">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Menu" />
+  </button>
+
+  <aside id="sidebar">
+    <h2>Poly Bot Hub</h2>
+    <ul>
+      <li onclick="location.href='/'">Dashboard API</li>
+      <li onclick="location.href='/dashboard-jadibot'">JadiBot WhatsApp</li>
+      <li onclick="location.href='/login'">Login / Register</li>
+    </ul>
+  </aside>
+
+  <main id="mainContent">
+    <h1 style="margin-bottom: 30px;">Dashboard API</h1>
+
+    <div class="card">
+      <h3>🎵 TikTok Video Downloader</h3>
+      <p>Unduh video TikTok tanpa watermark secara gratis dan cepat.</p>
+      <a href="/download?url=https://vt.tiktok.com/ZSNnNNNNN/">Coba Sekarang</a>
+    </div>
+
+    <div class="card">
+      <h3>🤖 Simi Ask + Wikipedia</h3>
+      <p>Bot pintar yang bisa menjawab pertanyaan dari database dan Wikipedia.</p>
+      <a href="/simi/ask?message=apa itu jaringan komputer">Tanya Bot</a>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Ajari Bot (Belajar)</h3>
+      <p>Tambahkan pengetahuan baru ke bot Simi menggunakan pertanyaan dan jawaban.</p>
+      <code style="color:#aaa">POST /simi/learn</code>
+    </div>
+
+    <div class="card">
+      <h3>💬 JadiBot WhatsApp</h3>
+      <p>Login untuk mengaktifkan bot WhatsApp pribadi Anda.</p>
+      <a href="/dashboard-jadibot">Masuk ke Bot</a>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 Poly Bot Hub. All rights reserved.
+    </div>
+  </main>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleBtn');
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('mainContent');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      main.classList.toggle('shifted');
+    });
+  </script>
+</body>
+</html>
